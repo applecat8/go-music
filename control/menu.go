@@ -28,12 +28,12 @@ func Menu(next, pause, exit chan bool){
     if err := keyboard.Open(); err != nil {
         log.Fatal(err)
     }
-
     defer keyboard.Close()
 
+    printInfo()
+
     for {
-        fmt.Println("<Space> 暂停, <Enter> 下一首, <Esc> 退出")
-        _, key, err := keyboard.GetSingleKey()
+        char, key, err := keyboard.GetSingleKey()
 
         if err != nil {
             log.Fatal(err)
@@ -46,6 +46,13 @@ func Menu(next, pause, exit chan bool){
         }else if key == keyboard.KeyEsc {
             exit <- true
             break
+        }else if char == 'm'{
+            printInfo()
         }
     }
+}
+
+// printInfo 打印帮助信息
+func printInfo()  {
+    fmt.Println("<Space> 暂停, <Enter> 下一首, <Esc> 退出, 'm'帮助")
 }

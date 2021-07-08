@@ -38,6 +38,7 @@ func Close(){
 //根据歌名播放音乐
 func PlayMusic(musicPath string,next chan bool){
 
+    //显示当前播放的音乐名称
     level := strings.Split(musicPath, "/")
     fmt.Println("当前播放音乐:",level[len(level) - 1])
 

@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-const MUSIC_DIR string = "/home/applecat/Recreation/music/"
+const MUSIC_DIR string = "/home/applecat/Music/ElectronNCM/"
 
 //加载所有音乐文件,获得mp3文件的路径
 func LoadMusics() []string {
